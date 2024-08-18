@@ -1,11 +1,15 @@
+import { BaseLayout } from "@/layouts/base";
 import { Head } from "@inertiajs/react";
 
-export default function Home()
+export function Home()
 {
     return (
         <main>
-            <Head title="Easy Restraunt"/>
-            Hello world.
+        this is home
         </main>
     )
 }
+
+Home.layout = page => <BaseLayout children={page} title="Restaurant Application" />
+
+export default Home;
