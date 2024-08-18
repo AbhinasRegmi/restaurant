@@ -14,6 +14,7 @@ return [
     */
 
     'defaults' => [
+        'login_redirect' => env('DEFAULT_LOGIN_REDIRECT', 'home'),
         'guard' => env('AUTH_GUARD', 'web'),
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
