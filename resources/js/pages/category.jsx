@@ -4,7 +4,7 @@ function Category(props)
 {
     return (
         <div>
-            this is category {props.category}
+            stuff this is category {props.category}
         </div>
     )
 }

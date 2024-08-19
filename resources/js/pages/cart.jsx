@@ -2,9 +2,9 @@ import { BaseLayout } from "@/layouts/base";
 
 function Cart(props)
 {
-    return (
+     return (
         <div>
-            this is cart page;
+            this is cart page
         </div>
     )
 }
