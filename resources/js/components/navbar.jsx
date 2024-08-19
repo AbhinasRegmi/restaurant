@@ -1,11 +1,14 @@
 import { MobileMenu } from "@/components/mobile-menu";
 import { Button } from "@/components/ui/button";
 import { Phone, ShoppingCart } from "lucide-react";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 
-export function Navbar() {
+export function Navbar(props) {
+    // this cart should come from actual server or session within browser.
     const [cart, setCart] = useState(3);
+    const { auth } = usePage().props;
+    console.log(auth);
     const navbarItems = [
         {
             label: "homepage",
@@ -28,9 +31,10 @@ export function Navbar() {
             label_key: "contact",
         },
         {
-            label: "login",
-            link: "/auth/redirec/login",
+            label: !!auth.user ? "order" : "login",
+            link: !!auth.user ? "/order" : "/auth/redirect/github",
             label_key: "login",
+            external: true,
         },
         {
             element: (
@@ -54,7 +58,7 @@ export function Navbar() {
     ];
 
     return (
-        <div className="flex items-center px-3 py-1">
+        <div className="flex items-center px-3 py-2 border border-primary/50">
             <Button variant="link" className="text-lg uppercase">
                 Massimo
             </Button>
@@ -85,9 +89,15 @@ function NavbarItem(props) {
             variant="link"
             className="uppercase hover:text-muted-foreground text-foreground"
         >
-            <Link href={props.link ?? ""}>
-                {!!props.label ? props.label : props.element}
-            </Link>
+            {!!props.external ? (
+                <a href={props.link ?? ""}>
+                    {!!props.label ? props.label : props.element}
+                </a>
+            ) : (
+                <Link href={props.link ?? ""}>
+                    {!!props.label ? props.label : props.element}
+                </Link>
+            )}
         </Button>
     );
 }
