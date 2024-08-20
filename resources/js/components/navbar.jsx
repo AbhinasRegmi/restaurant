@@ -8,7 +8,6 @@ export function Navbar(props) {
     // this cart should come from actual server or session within browser.
     const [cart, setCart] = useState(3);
     const { auth } = usePage().props;
-    console.log(auth);
     const navbarItems = [
         {
             label: "homepage",
