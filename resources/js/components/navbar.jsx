@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, ShoppingCart } from "lucide-react";
 import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
+import {cn} from "@/lib/utils";
 
 export function Navbar(props) {
     // this cart should come from actual server or session within browser.
@@ -11,27 +12,32 @@ export function Navbar(props) {
     const navbarItems = [
         {
             label: "homepage",
-            link: "/",
+            link: route("home"),
             label_key: "homepage",
+            isActive: route().current('home') 
         },
         {
             label: "menu",
-            link: "/menu",
+            link: route("menu"),
+            isActive: route().current("menu"),
             label_key: "menu",
         },
         {
             label: "working hours",
-            link: "/working hours",
+            link: route("home"),
+            isActive: route().current("workinghours"),
             label_key: "hours",
         },
         {
             label: "contact",
-            link: "/contact",
+            link: route("home"),
+            isActive: route().current("contact"),
             label_key: "contact",
         },
         {
             label: "order",
-            link: "/order",
+            link: route("order"),
+            isActive: route().current("order"),
             label_key: "order",
             visible: !!auth.user,
         },
@@ -98,7 +104,9 @@ function NavbarItem({visible = true, ...props}) {
         <Button
             asChild
             variant="link"
-            className="uppercase hover:text-muted-foreground text-foreground"
+            className={cn("uppercase hover:text-muted-foreground text-foreground",
+                props.isActive && "underline decoration-primary hover:text-primary",
+            )}
         >
             {!!props.external ? (
                 <a href={props.link ?? ""}>
