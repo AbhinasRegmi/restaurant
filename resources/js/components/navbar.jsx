@@ -30,10 +30,17 @@ export function Navbar(props) {
             label_key: "contact",
         },
         {
-            label: !!auth.user ? "order" : "login",
-            link: !!auth.user ? "/order" : "/auth/redirect/github",
+            label: "order",
+            link: "/order",
+            label_key: "order",
+            visible: !!auth.user,
+        },
+        {
+            label: "login",
+            link: "/auth/redirect/github",
             label_key: "login",
             external: true,
+            visible: !!!auth.user,
         },
         {
             element: (
@@ -55,7 +62,7 @@ export function Navbar(props) {
             label_key: "phone",
         },
     ];
-
+    
     return (
         <div className="flex items-center px-3 py-2 border border-primary/50">
             <Button variant="link" className="text-lg uppercase">
@@ -81,7 +88,12 @@ export function Navbar(props) {
     );
 }
 
-function NavbarItem(props) {
+function NavbarItem({visible = true, ...props}) {
+    if(!visible)
+    {
+        return;
+    }
+
     return (
         <Button
             asChild
