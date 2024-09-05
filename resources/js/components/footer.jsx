@@ -6,7 +6,7 @@ export function Footer() {
             <Button variant="link" className="uppercase py-0">
                 Massimo
             </Button>
-            <span>&copy; {new Date().getFullYear()} Made with love by Abhinas</span>
+            <span>&copy; {new Date().getFullYear()} Made with love by abhinas</span>
         </div>
     );
 }
