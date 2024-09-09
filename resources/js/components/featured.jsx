@@ -65,8 +65,7 @@ export function Featured() {
 function FeaturedItem(props) {
     return (
         <section className="w-full hover:bg-primary/5 px-2 py-3 rounded-sm md:shadow-sm">
-            {/* When image rotates there is unexpected behaviour in last image.*/}
-            <div className="max-h-[50vh] aspect-square mx-auto">
+            <div className="max-h-[50vh] aspect-square mx-auto overflow-clip">
                 <img
                     className="h-full w-full object-cover rounded-sm hover:rotate-[360deg] transition-transform"
                     src={props.imageUrl}
