@@ -13,7 +13,7 @@ export function BaseLayout(props) {
                 </p>
             </Notification>
             <Navbar />
-            <div className="grow text-red-600">{props.children}</div>
+            <div className="grow text-red-600 flex flex-col">{props.children}</div>
             <Footer />
         </main>
     );

@@ -50,10 +50,9 @@ export function Featured() {
         <div className="max-w-[100vw] overflow-hidden">
             <div className="flex w-full overflow-x-auto md:flex-wrap">
                 {featuredItems.map((featuredItem) => (
-                    <div className="w-full md:w-1/3 shrink-0 p-2">
+                    <div className="w-full md:w-1/3 shrink-0 p-2" key={featuredItem.title}>
                         <FeaturedItem
                             {...featuredItem}
-                            key={featuredItem.title}
                         />
                     </div>
                 ))}
