@@ -32,7 +32,7 @@ function Product(props) {
                     className="w-auto h-full object-cover"
                 />
             </div>
-            <div className="grow flex flex-col justify-center items-center">
+            <div className="grow flex flex-col justify-center items-center lg:items-start">
                 <div>
                     <h1 className="text-3xl lg:text-4xl font-bold">
                         {data.name}
